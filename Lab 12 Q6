@@ -11,8 +11,12 @@ int digitalroot(int n) {
 
     return digitalroot(dr); 
 }
+
+
 int main() {
-    int a=9875;
+    int a;
+    printf("Enter Number :");
+    scanf("%d",&a);
     printf("%d",digitalroot(a));
     return 0;
 }
