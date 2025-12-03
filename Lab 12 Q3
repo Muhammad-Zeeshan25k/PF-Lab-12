@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct student{
+    char name[20];
+    float marks;
+};
+
+
+int main() {
+    int noofstd;
+    printf("Enter the number of students :");
+    scanf("%d",&noofstd);
+    while(getchar()!='\n');
+    struct student *std = (struct student *) malloc(noofstd*sizeof(struct student));
+    for (int i=0;i<noofstd;i++){
+        printf("Enter the Name of Student %d :",i+1);
+        fgets(std[i].name,sizeof(std[i].name),stdin);
+        std[i].name[strcspn(std[i].name,"\n")]='\0';
+        printf("Enter the marks for Student %d :",i+1);
+        scanf("%f",&std[i].marks);
+        while(getchar()!='\n');
+    }
+    for(int i=0;i<noofstd;i++){
+        if(std[i].marks>=75){
+            printf("%s got marks %f",std[i].name,std[i].marks);
+        }
+    }
+    free(std);
+
+    return 0;
+}
